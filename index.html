@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>ハーフアニバーサリー カウントダウンアルバム</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f7f3f0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        padding: 0.5rem;
+        margin: 0;
+        gap: 1rem;
+      }
+
+      .slideshow-container {
+        position: relative;
+        max-width: 1000px;
+        height: var(--slideshow-height, 400px);
+        margin: 0 auto;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        background-color: #ffffff;
+        cursor: pointer;
+
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+      }
+
+      header {
+        flex-shrink: 0;
+      }
+      footer {
+        flex-shrink: 0;
+      }
+
+      .mySlides {
+        display: none;
+        width: 100%;
+        transition: opacity 1.5s ease-in-out;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+      }
+
+      .image-wrapper {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        background-color: #000000;
+        min-height: 0;
+      }
+
+      .mySlides img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        display: block;
+      }
+
+      .slide-caption {
+        color: #004d40;
+        padding: 15px;
+        text-align: center;
+        font-size: 1.125rem;
+        font-weight: 600;
+        background-color: #e0f7fa;
+        border-top: 1px solid #00bcd4;
+        flex-shrink: 0;
+      }
+
+      .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+
+      @keyframes fade {
+        from {
+          opacity: 0.4;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .prev,
+      .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        margin-top: -22px;
+        padding: 16px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        user-select: none;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 10;
+      }
+
+      .prev {
+        left: 10px;
+        border-radius: 5px 0 0 5px;
+      }
+
+      .next {
+        right: 10px;
+        border-radius: 0 5px 5px 0;
+      }
+
+      .dot-container {
+        text-align: center;
+        padding: 0 0 0 0;
+        flex-shrink: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+        height: 32px;
+      }
+
+      .dot {
+        cursor: pointer;
+        height: 12px;
+        width: 12px;
+        margin: 0 4px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+
+      .active,
+      .dot:hover {
+        background-color: #717171;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="text-center flex-shrink-0" id="header-area">
+      <h1 class="text-4xl font-extrabold text-teal-600">
+        🎉 Half Anniversary Album 🎉
+      </h1>
+      <p class="text-xl text-gray-600">
+        🐳25年5月同期メンバー🫖からのカウントダウン画像集🍄
+      </p>
+    </header>
+
+    <div
+      class="slideshow-container"
+      id="slideshow-area"
+      onclick="toggleAutoPlay()"
+    >
+      <div class="mySlides fade">
+        <div class="image-wrapper">
+          <img
+            src="images/28_days_left.png"
+            alt="あと28日"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='https://placehold.co/600x400/000000/FFFFFF?text=28 Days Left';"
+          />
+        </div>
+        <div class="slide-caption">MOE</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="image-wrapper">
+          <img
+            src="images/25_days_left.jpg"
+            alt="あと25日"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='https://placehold.co/600x400/000000/FFFFFF?text=25 Days Left';"
+          />
+        </div>
+        <div class="slide-caption">ゆうりん</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="image-wrapper">
+          <img
+            src="images/19_days_left.png"
+            alt="あと19日"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='https://placehold.co/600x400/000000/FFFFFF?text=19 Days Left';"
+          />
+        </div>
+        <div class="slide-caption">まーぼう</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="image-wrapper">
+          <img
+            src="images/18_days_left.jpg"
+            alt="あと18日"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='https://placehold.co/600x400/000000/FFFFFF?text=18 Days Left';"
+          />
+        </div>
+        <div class="slide-caption">にっしー</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="image-wrapper">
+          <img
+            src="images/13_days_left.png"
+            alt="あと13日"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='https://placehold.co/600x400/000000/FFFFFF?text=13 Days Left';"
+          />
+        </div>
+        <div class="slide-caption">ベクチョコ</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="image-wrapper">
+          <img
+            src="images/11_days_left.png"
+            alt="あと11日"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='https://placehold.co/600x400/000000/FFFFFF?text=11 Days Left';"
+          />
+        </div>
+        <div class="slide-caption">みっつ</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="image-wrapper">
+          <img
+            src="images/07_days_left.jpg"
+            alt="あと7日"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='https://placehold.co/600x400/000000/FFFFFF?text=7 Days Left';"
+          />
+        </div>
+        <div class="slide-caption">くき</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="image-wrapper">
+          <img
+            src="images/06_days_left.jpg"
+            alt="あと6日"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='https://placehold.co/600x400/000000/FFFFFF?text=6 Days Left';"
+          />
+        </div>
+        <div class="slide-caption">なぽ</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="image-wrapper">
+          <img
+            src="images/05_days_left.jpg"
+            alt="あと5日"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='https://placehold.co/600x400/000000/FFFFFF?text=5 Days Left';"
+          />
+        </div>
+        <div class="slide-caption">りっちゃん</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="image-wrapper">
+          <img
+            src="images/04_days_left.jpg"
+            alt="あと4日"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='https://placehold.co/600x400/000000/FFFFFF?text=4 Days Left';"
+          />
+        </div>
+        <div class="slide-caption">あかり</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="image-wrapper">
+          <img
+            src="images/03_days_left.png"
+            alt="あと3日"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='https://placehold.co/600x400/000000/FFFFFF?text=3 Days Left';"
+          />
+        </div>
+        <div class="slide-caption">かなめ</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="image-wrapper">
+          <img
+            src="images/02_days_left.jpg"
+            alt="あと2日"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='https://placehold.co/600x400/000000/FFFFFF?text=2 Days Left';"
+          />
+        </div>
+        <div class="slide-caption">ベクチョコ</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="image-wrapper">
+          <img
+            src="images/01_day_left.jpg"
+            alt="あと1日"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='https://placehold.co/600x400/000000/FFFFFF?text=1 Day Left';"
+          />
+        </div>
+        <div class="slide-caption">クロネコ</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="image-wrapper">
+          <img
+            src="images/00_the_day.jpg"
+            alt="当日(ほんちゃん)"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='https://placehold.co/600x400/000000/FFFFFF?text=The Day';"
+          />
+        </div>
+        <div class="slide-caption">ほんちゃん</div>
+      </div>
+
+      <div class="mySlides fade">
+        <div class="image-wrapper">
+          <img
+            src="images/00_the_day_2.jpg"
+            alt="当日(よーこ)"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='https://placehold.co/600x400/000000/FFFFFF?text=The Day';"
+          />
+        </div>
+        <div class="slide-caption">よーこ</div>
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <div class="dot-container"></div>
+
+    <footer
+      class="text-center text-gray-500 text-sm flex-shrink-0"
+      id="footer-area"
+    >
+      <p>This album is powered by GitHub Pages.</p>
+    </footer>
+
+    <script>
+      let slideIndex = 1;
+      let slideshowTimeout;
+      let isAutoPlaying = true;
+      const delay = 3000;
+      const slides = document.getElementsByClassName("mySlides");
+      const dotContainer = document.querySelector(".dot-container");
+
+      function calculateHeightAndApply() {
+        const header = document.getElementById("header-area");
+        const footer = document.getElementById("footer-area");
+        const slideshow = document.getElementById("slideshow-area");
+        const dotArea = dotContainer;
+
+        let viewportHeight = window.innerHeight;
+
+        const headerHeight = header ? header.offsetHeight : 0;
+        const footerHeight = footer ? footer.offsetHeight : 0;
+        const dotAreaHeight = dotArea ? dotArea.offsetHeight : 0;
+
+        const bodyPaddingTopBottom = 8 * 2;
+
+        const totalSpacing = bodyPaddingTopBottom + 16 * 3;
+
+        const availableHeight =
+          viewportHeight -
+          (headerHeight + footerHeight + dotAreaHeight + totalSpacing);
+
+        if (slideshow) {
+          slideshow.style.setProperty(
+            "--slideshow-height",
+            `${Math.max(0, availableHeight - 4)}px`
+          );
+        }
+      }
+
+      function generateDots() {
+        dotContainer.innerHTML = "";
+        for (let i = 0; i < slides.length; i++) {
+          const dot = document.createElement("span");
+          dot.className = "dot";
+          dot.onclick = (event) => {
+            event.stopPropagation();
+            currentSlide(i + 1);
+          };
+          dotContainer.appendChild(dot);
+        }
+      }
+
+      function showSlides(n) {
+        let i;
+        const dots = dotContainer.querySelectorAll(".dot");
+
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+
+        if (slides.length > 0) {
+          slides[slideIndex - 1].style.display = "flex";
+          dots[slideIndex - 1].className += " active";
+        }
+      }
+
+      function startAutoPlayLoop() {
+        clearTimeout(slideshowTimeout);
+        isAutoPlaying = true;
+
+        slideshowTimeout = setTimeout(() => {
+          showSlides((slideIndex += 1));
+          startAutoPlayLoop();
+        }, delay);
+      }
+
+      function stopAutoPlayLoop() {
+        clearTimeout(slideshowTimeout);
+        isAutoPlaying = false;
+      }
+
+      function toggleAutoPlay() {
+        if (isAutoPlaying) {
+          stopAutoPlayLoop();
+        } else {
+          startAutoPlayLoop();
+        }
+      }
+
+      function plusSlides(n) {
+        stopAutoPlayLoop();
+        clearTimeout(slideshowTimeout);
+        showSlides((slideIndex += n));
+      }
+
+      function currentSlide(n) {
+        stopAutoPlayLoop();
+        clearTimeout(slideshowTimeout);
+        showSlides((slideIndex = n));
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        generateDots();
+        calculateHeightAndApply();
+        if (slides.length > 0) {
+          showSlides(slideIndex);
+          startAutoPlayLoop();
+        }
+      });
+
+      window.addEventListener("resize", calculateHeightAndApply);
+    </script>
+  </body>
+</html>
