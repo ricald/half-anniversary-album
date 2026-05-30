@@ -75,6 +75,12 @@
         height: auto;
         object-fit: contain;
         display: block;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .mySlides img.img-loaded {
+        opacity: 1;
       }
 
       .slide-caption {
@@ -476,6 +482,15 @@
       document.addEventListener("DOMContentLoaded", () => {
         generateDots();
         calculateHeightAndApply();
+
+        document.querySelectorAll(".mySlides img").forEach((img) => {
+          if (img.complete && img.naturalWidth > 0) {
+            img.classList.add("img-loaded");
+          } else {
+            img.addEventListener("load", () => img.classList.add("img-loaded"));
+          }
+        });
+
         if (slides.length > 0) {
           showSlides(slideIndex);
           startAutoPlayLoop();
